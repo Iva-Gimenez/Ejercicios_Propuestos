@@ -1,0 +1,13 @@
+Luis,Gimenez,12-03-1986,45678.08
+Liliana,Meza,07-05-1995,45000.07
+Flavia,Gonzalez,23-08-1991,38500.00
+Ariel,Obregón,26-09-1990,50000.02
+Soledad,López,10-04-1968,30000.05
+Javier,Fernández,15-07-1990,25000.00
+Olga,Gutierrez,04-01-1975,31000.08
+Emmanuel,Araoz,09-10-1955,37800.02
+Martín,Arosio,29-11-1995,25550.09
+Miguel,Vera,12-12-1985,39000.02
+Catalina,Benitez,20-05-1995,34000.02
+Natalia,Lima,20-01-1965,20000.02
+Matias,Canteros,22-04-1998,52000.02
