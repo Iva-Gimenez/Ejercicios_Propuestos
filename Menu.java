@@ -8,13 +8,13 @@ public class Menu {
 
     public static void main(String[] args) {
         List<Empleado> listaEmpleados = Controlador.cargarEmpleados();
-        System.out.println(listaEmpleados);
+        
         while(true){
             Scanner entrada = new Scanner(System.in);
             System.out.println("* * * * * M E N U * * * * *");
             System.out.println("Ingrese una opción: ");
             System.out.println("1 - Buscar por inicial del apellido");
-            System.out.println("2 - Lista de empleados en orden alfabético");
+            System.out.println("2 - Lista de empleados en orden alfabético por Nombre");
             System.out.println("3 - Empleado con menor y mayor de edad");
             System.out.println("4 - Empleado con menor y mayor salario");
             System.out.println("0 - Salir");

@@ -36,6 +36,7 @@ public class Controlador {
 
         return listaFiltrada;
     }
+
     public static List<Empleado> cargarEmpleados() {
         File file = null;
         BufferedReader bufferedReader = null;
@@ -43,41 +44,33 @@ public class Controlador {
         String[] empleado;
         List<Empleado> listaEmpleados = new ArrayList<>();
 
-        Scanner entrada = new Scanner(System.in);
-        String filePath = new File("Ejerc_Propuestos\\empleados.txt");
-        file = new File(filePath);
-        String path = file.getAbsolutePath();
-        ArrayList<Empleado> empleados = LeerArchivoPorLineas(path);
+        try {
+            file = new File("Ejerc_Propuestos\\empleados.txt");
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+
+            String linea;
+            while ((linea = bufferedReader.readLine()) != null) {
+                empleado = linea.split(",");
+                listaEmpleados.add(new Empleado(empleado[0], empleado[1], empleado[2], empleado[3]));
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                if (null != fileReader)
+                    fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         return listaEmpleados;
     }
 
-    public static ArrayList<Empleado> LeerArchivoPorLineas(String filename) {
-        String line = null;
-        ArrayList<Empleado> empleados = new ArrayList<>();
-        try {
-            FileReader r = new FileReader(filename);
-            BufferedReader br = new BufferedReader(r);
-
-            while ((line = br.readLine()) != null) {
-                Empleado e = createEmpleadoFromString(line);
-                empleados.add(e);
-            }
-
-            br.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (Error e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return empleados;
-    }
 
     public static List<Empleado> ordenAlfabetico(List<Empleado> empleados) {
-        empleados.sort(Comparator.comparing(Empleado::getNombre).thenComparing(Empleado::getApellido));
+        empleados.sort(Comparator.comparing(Empleado::getApellido).thenComparing(Empleado::getNombre));
         return empleados;
     }
 
